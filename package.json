@@ -1,7 +1,7 @@
 {
 	"name": "@greenpt/n8n-nodes-greenpt",
 	"version": "0.1.0",
-	"description": "GreenPT chat models for n8n AI agents and chains",
+	"description": "GreenPT chat, embedding, reranking and speech-to-text models for n8n",
 	"license": "MIT",
 	"homepage": "https://docs.greenpt.ai/automation/n8n",
 	"keywords": [
@@ -40,7 +40,10 @@
 			"dist/credentials/GreenPtApi.credentials.js"
 		],
 		"nodes": [
-			"dist/nodes/LmChatGreenPt/LmChatGreenPt.node.js"
+			"dist/nodes/LmChatGreenPt/LmChatGreenPt.node.js",
+			"dist/nodes/EmbeddingsGreenPt/EmbeddingsGreenPt.node.js",
+			"dist/nodes/RerankerGreenPt/RerankerGreenPt.node.js",
+			"dist/nodes/GreenPt/GreenPt.node.js"
 		]
 	},
 	"devDependencies": {

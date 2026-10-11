@@ -8,16 +8,14 @@ import type {
 import { NodeConnectionTypes } from 'n8n-workflow';
 import { supplyModel } from '@n8n/ai-node-sdk';
 
+import { loadModels } from '../catalogue';
+
 type ModelOptions = {
 	maxTokens?: number;
 	maxRetries?: number;
 	temperature?: number;
 	timeout?: number;
 	topP?: number;
-};
-
-type PricingResponse = {
-	data: Array<{ id: string; type: string }>;
 };
 
 export class LmChatGreenPt implements INodeType {
@@ -117,17 +115,7 @@ export class LmChatGreenPt implements INodeType {
 	methods = {
 		loadOptions: {
 			async getModels(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
-				const credentials = await this.getCredentials('greenPtApi');
-				const response = (await this.helpers.httpRequestWithAuthentication.call(
-					this,
-					'greenPtApi',
-					{ method: 'GET', url: `${credentials.url as string}/pricing`, json: true },
-				)) as PricingResponse;
-
-				return response.data
-					.filter((model) => model.type === 'LLM')
-					.map((model) => ({ name: model.id, value: model.id }))
-					.sort((a, b) => a.name.localeCompare(b.name));
+				return await loadModels.call(this, 'LLM');
 			},
 		},
 	};
