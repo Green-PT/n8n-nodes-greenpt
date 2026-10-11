@@ -1,0 +1,18 @@
+{
+	"node": "@greenpt/n8n-nodes-greenpt.lmChatGreenPt",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Development"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://docs.greenpt.ai/get-started"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://docs.greenpt.ai/automation/n8n"
+			}
+		]
+	}
+}
