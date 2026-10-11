@@ -56,5 +56,8 @@
 	"peerDependencies": {
 		"n8n-workflow": "*",
 		"@n8n/ai-node-sdk": "*"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
